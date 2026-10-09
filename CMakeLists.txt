@@ -1,3 +1,11 @@
+# default to ROS2 of the sourced distro so that a plain `colcon build` works
+if(NOT DEFINED ROS_EDITION)
+  set(ROS_EDITION "ROS2")
+endif()
+if(NOT DEFINED DISTRO_ROS)
+  set(DISTRO_ROS "$ENV{ROS_DISTRO}")
+endif()
+
 # judge which cmake codes to use 
 if(ROS_EDITION STREQUAL "ROS1")
 
